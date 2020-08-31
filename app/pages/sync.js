@@ -100,7 +100,6 @@ class loginPage extends Component {
 
                         <Spinner
                             visible={this.state.spinner}
-                            textStyle={Styles.loader}
                         />
                     </Container>
                 )}

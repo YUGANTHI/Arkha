@@ -3,7 +3,8 @@ import { View, Text, Alert } from 'react-native';
 import { Container, Content, Button, Icon, InputGroup, Input, List, ListItem, Left, Body } from 'native-base';
 import { FlatList } from 'react-native-gesture-handler';
 import ChannelService from './../service/channelService';
-import Styles from '../assets/styles'
+import Styles from '../assets/styles';
+import Colors from '../assets/colors';
 import Spinner from 'react-native-loading-spinner-overlay';
 import AsyncStorage from '@react-native-community/async-storage';
 
@@ -44,7 +45,7 @@ class dashboard extends Component {
 		return (
 			<>
 				<View style={Styles.header}>
-					<Text style={{ fontSize: 22, color: 'white' }}>Select a Channel Type</Text>
+					<Text style={{ fontSize: 22, color: Colors.white}}>Select a Channel Type</Text>
 				</View>
 			</>
 		)
@@ -76,7 +77,7 @@ class dashboard extends Component {
 
 	render() {
 		return (
-			<Container style={{ backgroundColor: '#092531', paddingTop: 20 }}>
+			<Container style={{ backgroundColor: Colors.backgroundColor, paddingTop: 20 }}>
 				<Icon type='Feather' onPress={this.logout} name='log-out' style={[Styles.textWhite, { alignSelf: 'flex-end', paddingRight: 10, fontSize: 20 }]} />
 				<FlatList
 					data={this.state.channels}
@@ -113,9 +114,6 @@ class dashboard extends Component {
 				/>
 				<Spinner
 					visible={this.state.spinner}
-					textStyle={{
-						color: 'white'
-					}}
 				/>
 			</Container>
 		);

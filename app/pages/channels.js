@@ -3,8 +3,8 @@ import { View, Text, Image } from 'react-native';
 import { Container, Content, Button, Icon, InputGroup, Input, List, ListItem, Left, Body, Card } from 'native-base';
 import { FlatList } from 'react-native-gesture-handler';
 import ChannelService from './../service/channelService';
-import Styles from '../assets/styles'
-import Video from 'react-native-video';
+import Styles from '../assets/styles';
+import Colors from '../assets/colors';
 import { WebView } from 'react-native-webview';
 import Spinner from 'react-native-loading-spinner-overlay';
 
@@ -43,9 +43,9 @@ class Channels extends Component {
 
   render() {
     return (
-      <Container style={{ backgroundColor: '#092531', paddingTop: 50 }}>
+      <Container style={{ backgroundColor: Colors.backgroundColor, paddingTop: 50 }}>
         <View style={{ alignItems: 'center' }}>
-          <Text style={{ fontSize: 22, color: 'white' }}>Select a Channel to view</Text>
+          <Text style={{ fontSize: 22, color: Colors.white }}>Select a Channel to view</Text>
         </View>
         <FlatList
           style={{ marginLeft: 10, flex: 0.25 }}
@@ -65,12 +65,12 @@ class Channels extends Component {
                         style={{
                           height: 120,
                           width: '100%',
-                          borderColor: 'blue',
+                          borderColor: Colors.blue,
                           borderWidth: 1,
                         }}
                         source={{ uri: item.image }} />
                     </ListItem>
-                    <Text style={{ fontWeight: 'bold', color: 'white', alignSelf: 'center' }}>{item.name}</Text>
+                    <Text style={{ fontWeight: 'bold', color: Colors.white, alignSelf: 'center' }}>{item.name}</Text>
                   </List>
                 </Card>
               )
@@ -81,9 +81,6 @@ class Channels extends Component {
         />
         <Spinner
           visible={this.state.spinner}
-          textStyle={{
-            color: 'white'
-          }}
         />
         {
           this.state.url !== null ?
